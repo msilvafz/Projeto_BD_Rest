@@ -1,0 +1,20 @@
+/* Container do cabeçalho */
+.header-container {
+    display: flex;
+    justify-content: flex-end; /* Alinha o botão à direita */
+    align-items: flex-start; /* Alinha o botão ao topo */
+    padding: 0; /* Certifique-se de que não há padding extra */
+    margin: 0; /* Certifique-se de que não há margem extra */
+}
+
+/* Botão personalizado */
+.custom-button {
+    margin-top: -5px; /* Reduza o valor para diminuir o espaçamento */
+    /* Ou remova a margem negativa se a distância ainda estiver excessiva */
+}
+
+/* Container do formulário personalizado */
+.custom-form-container {
+    margin-top: -20px; /* Ajuste para reduzir a distância */
+    /* Ou remova o margin-top se a distância ainda estiver excessiva */
+}
