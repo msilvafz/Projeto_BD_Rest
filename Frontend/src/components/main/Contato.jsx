@@ -8,13 +8,23 @@ const Contato = () => {
           <label for="inputEmail4" class="form-label">
             Email
           </label>
-          <input type="email" class="form-control" id="inputEmail4" title="Digite seu email" />
+          <input
+            type="email"
+            class="form-control"
+            id="inputEmail4"
+            title="Digite seu email"
+          />
         </div>
         <div class="col-md-6">
           <label for="name" class="form-label">
             Nome
           </label>
-          <input type="text" class="form-control" id="name" title="Digite seu nome"/>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            title="Digite seu nome"
+          />
         </div>
 
         <div class="col-md-6">
@@ -34,13 +44,25 @@ const Contato = () => {
           <label for="inputCity" class="form-label">
             Cidade
           </label>
-          <input type="text" class="form-control" id="inputCity" title="Digite sua cidade" required />
+          <input
+            type="text"
+            class="form-control"
+            id="inputCity"
+            title="Digite sua cidade"
+            required
+          />
         </div>
         <div class="col-6">
           <label for="inputAddress" class="form-label">
             Estado
           </label>
-          <input type="text" class="form-control" id="inputAddress" title="Digite seu estado" required />
+          <input
+            type="text"
+            class="form-control"
+            id="inputAddress"
+            title="Digite seu estado"
+            required
+          />
         </div>
         {/* <div class="col-md-2">
           <label for="inputZip" class="form-label">

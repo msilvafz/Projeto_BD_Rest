@@ -95,32 +95,32 @@
 }
 
 #sidebar-wrapper {
-  background-color: #1e3a8a; 
+  background-color: #1e3a8a;
 }
 
 .sidebar-heading {
-  color: #ffffff; 
+  color: #ffffff;
 }
 
 .list-group-item {
-  color: #ffffff; 
+  color: #ffffff;
 }
 
 .list-group-item.active {
-  background-color: #3b82f6; 
-  color: #ffffff; 
+  background-color: #3b82f6;
+  color: #ffffff;
 }
 
 #page-content-wrapper {
-  background-color: #f1f5f9; 
+  background-color: #f1f5f9;
 }
 
 .navbar {
-  background-color: #1e3a8a; 
+  background-color: #1e3a8a;
 }
 
 .nav-link {
-  color: #ffffff; 
+  color: #ffffff;
 }
 
 .navbar-toggler {
@@ -128,15 +128,15 @@
 }
 
 .dropdown-menu {
-  background-color: #1e3a8a; 
-  color: #ffffff; 
+  background-color: #1e3a8a;
+  color: #ffffff;
 }
 
 .dropdown-item {
-  color: #ffffff; 
+  color: #ffffff;
 }
 
 .dropdown-item:hover {
-  background-color: #3b82f6; 
-  color: #ffffff; 
+  background-color: #3b82f6;
+  color: #ffffff;
 }

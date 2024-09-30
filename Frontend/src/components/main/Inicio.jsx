@@ -6,7 +6,10 @@ import { UltimosVideos } from "./UltimosVideos";
 const Inicio = () => {
   return (
     <>
-      <div className="bg-dark text-secondary px-4 py-5 text-center text-white" id="inicio">
+      <div
+        className="bg-dark text-secondary px-4 py-5 text-center text-white"
+        id="inicio"
+      >
         <div className="py-5">
           <h1 className="display-5 fw-bold">MESTRE DIGITAL</h1>
           <div className="col-lg-6 mx-auto">
@@ -31,7 +34,10 @@ const Inicio = () => {
                 </button>
               </Link>
               <Link to="/sobre">
-                <button type="button" className=" btn btn-outline-info btn-lg px-4">
+                <button
+                  type="button"
+                  className=" btn btn-outline-info btn-lg px-4"
+                >
                   Sobre
                 </button>
               </Link>

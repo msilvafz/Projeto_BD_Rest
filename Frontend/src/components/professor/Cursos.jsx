@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import { Table, Button, Modal, Form } from 'react-bootstrap';
+import React, { useState } from "react";
+import { Table, Button, Modal, Form } from "react-bootstrap";
 import "../../assets/css/CursosProfessor.css";
 
 const Cursos = ({ cursos: initialCursos, onUpdateCurso }) => {
   const [cursos, setCursos] = useState(initialCursos);
   const [showModal, setShowModal] = useState(false);
   const [currentCurso, setCurrentCurso] = useState(null);
-
 
   React.useEffect(() => {
     setCursos(initialCursos);
@@ -24,19 +23,19 @@ const Cursos = ({ cursos: initialCursos, onUpdateCurso }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setCurrentCurso(prevCurso => ({
+    setCurrentCurso((prevCurso) => ({
       ...prevCurso,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSave = () => {
     if (currentCurso) {
-      const updatedCursos = cursos.map(curso =>
+      const updatedCursos = cursos.map((curso) =>
         curso.id === currentCurso.id ? currentCurso : curso
       );
       setCursos(updatedCursos);
-      onUpdateCurso(currentCurso); 
+      onUpdateCurso(currentCurso);
       handleClose();
     }
   };
@@ -54,14 +53,16 @@ const Cursos = ({ cursos: initialCursos, onUpdateCurso }) => {
           </tr>
         </thead>
         <tbody>
-          {cursos.map(curso => (
+          {cursos.map((curso) => (
             <tr key={curso.id}>
               <td>{curso.id}</td>
               <td>{curso.nome}</td>
               <td>{curso.categoria}</td>
               <td>{curso.dificuldade}</td>
               <td>
-                <Button variant="info" onClick={() => handleShow(curso)}>Detalhes</Button>
+                <Button variant="info" onClick={() => handleShow(curso)}>
+                  Detalhes
+                </Button>
               </td>
             </tr>
           ))}
@@ -77,20 +78,20 @@ const Cursos = ({ cursos: initialCursos, onUpdateCurso }) => {
             <Form>
               <Form.Group controlId="formNome">
                 <Form.Label>Nome do Curso</Form.Label>
-                <Form.Control 
-                  type="text" 
-                  name="nome" 
-                  value={currentCurso.nome} 
-                  onChange={handleChange} 
+                <Form.Control
+                  type="text"
+                  name="nome"
+                  value={currentCurso.nome}
+                  onChange={handleChange}
                 />
               </Form.Group>
 
               <Form.Group controlId="formCategoria" className="mb-3">
                 <Form.Label>Categoria</Form.Label>
-                <Form.Control 
-                  as="select" 
-                  name="categoria" 
-                  value={currentCurso.categoria} 
+                <Form.Control
+                  as="select"
+                  name="categoria"
+                  value={currentCurso.categoria}
                   onChange={handleChange}
                 >
                   <option value="Tecnologia">Tecnologia</option>
@@ -102,10 +103,10 @@ const Cursos = ({ cursos: initialCursos, onUpdateCurso }) => {
 
               <Form.Group controlId="formDificuldade" className="mb-3">
                 <Form.Label>Dificuldade</Form.Label>
-                <Form.Control 
-                  as="select" 
-                  name="dificuldade" 
-                  value={currentCurso.dificuldade} 
+                <Form.Control
+                  as="select"
+                  name="dificuldade"
+                  value={currentCurso.dificuldade}
                   onChange={handleChange}
                 >
                   <option value="Iniciante">Iniciante</option>

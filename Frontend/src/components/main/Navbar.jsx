@@ -7,7 +7,11 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          <img src="src/assets/logo-mestre-digital.png" width="50" height="50"></img>
+          <img
+            src="src/assets/logo-mestre-digital.png"
+            width="50"
+            height="50"
+          ></img>
         </Link>
         <button
           className="navbar-toggler"
@@ -23,11 +27,7 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0 fs-5">
             <li className="nav-item">
-              <Link
-                className="nav-link active"
-                aria-current="page"
-                to="/"
-              >
+              <Link className="nav-link active" aria-current="page" to="/">
                 Pagina Inicial
               </Link>
             </li>
@@ -52,9 +52,9 @@ const Navbar = () => {
           </ul>
           <form className="d-flex gap-2" role="search">
             <Link to="/signuplogin">
-            <button className="btn btn-info" type="submit">
-              Entrar
-            </button>
+              <button className="btn btn-info" type="submit">
+                Entrar
+              </button>
             </Link>
             <Link to="/signup">
               <button className="btn btn-success" type="submit">

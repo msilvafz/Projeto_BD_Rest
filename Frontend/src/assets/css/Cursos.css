@@ -1,5 +1,3 @@
-/* Cursos.css */
-
 .container {
   margin-top: 30px;
 }
@@ -53,11 +51,11 @@
 
 .card {
   position: relative;
-  padding-bottom: 10px; /* Adiciona espaço no fundo do card para a avaliação */
+  padding-bottom: 10px; 
 }
 
 .progress-container {
-  margin-bottom: 15px; /* Adiciona espaço abaixo da barra de progresso */
+  margin-bottom: 15px; 
 }
 
 .card-subtitle {
@@ -123,13 +121,11 @@
 
 .discount-badge {
   display: inline-block;
-  margin-top: 0.20rem;
-  padding: 0.30rem 0.20rem;
+  margin-top: 0.2rem;
+  padding: 0.3rem 0.2rem;
   font-size: 0.875rem;
   font-weight: 700;
   color: #fff;
   background-color: #dc3545;
   border-radius: 0.25rem;
 }
-
-

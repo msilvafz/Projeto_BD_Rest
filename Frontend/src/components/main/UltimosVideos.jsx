@@ -13,9 +13,7 @@ export const UltimosVideos = () => {
                 alt="video1"
               ></img>
               <div className="card-body">
-                <p className="card-text">
-                  
-                </p>
+                <p className="card-text"></p>
                 <div className="d-flex justify-content-between align-items-center">
                   <button type="button" className="btn btn-outline-info">
                     Assista
@@ -31,9 +29,7 @@ export const UltimosVideos = () => {
                 alt="video2"
               ></img>
               <div className="card-body">
-                <p className="card-text">
-                  
-                </p>
+                <p className="card-text"></p>
                 <div className="d-flex justify-content-between align-items-center">
                   <button type="button" className="btn btn-outline-info">
                     Assista
@@ -49,9 +45,7 @@ export const UltimosVideos = () => {
                 alt="video3"
               ></img>
               <div className="card-body">
-                <p className="card-text">
-                  
-                </p>
+                <p className="card-text"></p>
                 <div className="d-flex justify-content-between align-items-center">
                   <button type="button" className="btn btn-outline-info">
                     Assista

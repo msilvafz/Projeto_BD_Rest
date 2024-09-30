@@ -42,7 +42,9 @@ const Footer = () => {
           </a>
         </li>
       </ul>
-      <p className="text-center text-body-secondary">© 2024, Campina Grande | Mestre Digital | Todos direitos reservados.</p>
+      <p className="text-center text-body-secondary">
+        © 2024, Campina Grande | Mestre Digital | Todos direitos reservados.
+      </p>
     </footer>
   );
 };

@@ -1,47 +1,60 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
-function Signup() {
-  const [selectedRole, setSelectedRole] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+function Login() {
+  const [formData, setFormData] = useState({
+    nome: "",
+    senha: "",
+    tipo: "",
+  });
 
-  useEffect(() => {
-    // Verifica se o tipo de usuário foi selecionado anteriormente
-    const selectElement = document.getElementById("inputState");
-    if (selectElement) {
-      setSelectedRole(selectElement.value);
-    }
-  }, []);
-
-  const handleSelectChange = (event) => {
-    setSelectedRole(event.target.value);
+  const handleChange = (event) => {
+    const { id, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
   };
 
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!selectedRole || !email || !password) {
+    const { nome, senha, tipo } = formData;
+
+    if (!nome || !senha || !tipo) {
       alert("Por favor, preencha todos os campos.");
       return;
     }
 
-    // Simples redirecionamento baseado no tipo de usuário selecionado
-    if (selectedRole === "Aluno") {
-      window.location.href = "/alunocursos/home";
-    } else if (selectedRole === "Professor") {
-      window.location.href = "/professorcursos/home";
-    } else if (selectedRole === "Administrador") {
-      window.location.href = "/adminCursos/home";
-    } else {
-      alert("Tipo de usuário incorreto.");
+    try {
+      const response = await axios.post("http://localhost:3000/auth/login", {
+        nome,
+        senha,
+      });
+
+      if (response.status === 200) {
+        const { token, userId, role } = response.data;
+        localStorage.setItem("token", token);
+        localStorage.setItem("userId", userId);
+        localStorage.setItem("userRole", role);
+
+        // Redirecionar baseado no tipo de usuário
+        if (tipo === "Aluno") {
+          window.location.href = "/alunocursos/home";
+        } else if (tipo === "Professor") {
+          window.location.href = "/professorcursos/home";
+        } else if (tipo === "Administrador") {
+          window.location.href = "/adminCursos/home";
+        }
+      }
+    } catch (error) {
+      console.error(
+        "Erro ao fazer login:",
+        error.response?.data?.message || error.message
+      );
+      alert(
+        `Erro ao fazer login: ${error.response?.data?.message || error.message}`
+      );
     }
   };
 
@@ -65,40 +78,39 @@ function Signup() {
           </div>
           <div className="col-md-10 mx-auto col-lg-5">
             <div className="p-4 p-md-5 border rounded-3 bg-body-tertiary">
-
               <div className="form-floating mb-3">
                 <input
-                  type="email"
+                  type="text"
                   className="form-control"
-                  id="emailInput"
-                  placeholder="name@example.com*"
-                  value={email}
-                  onChange={handleEmailChange}
+                  id="nome"
+                  placeholder="Nome de usuário"
+                  value={formData.nome}
+                  onChange={handleChange}
                 />
-                <label htmlFor="emailInput">Email</label>
+                <label htmlFor="nome">Nome de usuário</label>
               </div>
 
               <div className="form-floating mb-3">
                 <input
                   type="password"
                   className="form-control"
-                  id="floatingPassword"
-                  placeholder="Password"
-                  value={password}
-                  onChange={handlePasswordChange}
+                  id="senha"
+                  placeholder="Senha"
+                  value={formData.senha}
+                  onChange={handleChange}
                 />
-                <label htmlFor="floatingPassword">Senha</label>
+                <label htmlFor="senha">Senha</label>
               </div>
 
               <div className="mb-3">
-                <label htmlFor="inputState" className="form-label">
+                <label htmlFor="tipo" className="form-label">
                   Acessar como:
                 </label>
                 <select
-                  id="inputState"
+                  id="tipo"
                   className="form-select"
-                  onChange={handleSelectChange}
-                  value={selectedRole}
+                  onChange={handleChange}
+                  value={formData.tipo}
                 >
                   <option value="">...</option>
                   <option value="Aluno">Aluno</option>
@@ -106,17 +118,9 @@ function Signup() {
                   <option value="Administrador">Administrador</option>
                 </select>
               </div>
-              <div className="checkbox mb-3">
-                <label>
-                  <input type="checkbox" value="remember-me" /> Li e estou de
-                  acordo com as{" "}
-                  <b>políticas da empresa e políticas de privacidade</b>.
-                </label>
-              </div>
               <button className="w-100 btn btn-lg btn-primary" type="submit">
                 Login
               </button>
-              <hr className="my-4" />
             </div>
           </div>
         </div>
@@ -125,4 +129,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Login;

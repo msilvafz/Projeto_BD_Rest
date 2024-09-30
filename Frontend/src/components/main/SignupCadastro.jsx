@@ -3,18 +3,18 @@ import React, { useState } from "react";
 function Signup() {
   const [selectedRole, setSelectedRole] = useState("");
   const [formData, setFormData] = useState({
-    nome: '',
-    email: '',
-    cpf: '',
-    senha: '',
-    tipo: ''
+    nome: "",
+    email: "",
+    cpf: "",
+    senha: "",
+    tipo: "",
   });
 
   const handleSelectChange = (event) => {
     setSelectedRole(event.target.value);
-    setFormData(prevData => ({
+    setFormData((prevData) => ({
       ...prevData,
-      tipo: event.target.value 
+      tipo: event.target.value,
     }));
   };
 
@@ -22,7 +22,7 @@ function Signup() {
     const { id, value } = event.target;
     setFormData((prevData) => ({
       ...prevData,
-      [id]: value
+      [id]: value,
     }));
   };
 
@@ -36,7 +36,14 @@ function Signup() {
       return;
     }
 
-    const newUser = { id: Date.now().toString(), nome, email, cpf, senha, tipo };
+    const newUser = {
+      id: Date.now().toString(),
+      nome,
+      email,
+      cpf,
+      senha,
+      tipo,
+    };
 
     if (tipo === "Aluno") {
       const savedAlunos = JSON.parse(localStorage.getItem("alunos")) || [];
@@ -44,7 +51,8 @@ function Signup() {
       localStorage.setItem("alunos", JSON.stringify(savedAlunos));
       window.location.href = "/alunocursos/home";
     } else if (tipo === "Professor") {
-      const savedProfessores = JSON.parse(localStorage.getItem("professores")) || [];
+      const savedProfessores =
+        JSON.parse(localStorage.getItem("professores")) || [];
       savedProfessores.push(newUser);
       localStorage.setItem("professores", JSON.stringify(savedProfessores));
       window.location.href = "/professorcursos/home";

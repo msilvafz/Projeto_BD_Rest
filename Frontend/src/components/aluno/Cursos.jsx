@@ -1,6 +1,15 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { Button, Card, Carousel, Col, Container, Form, Modal, Row } from 'react-bootstrap';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import {
+  Button,
+  Card,
+  Carousel,
+  Col,
+  Container,
+  Form,
+  Modal,
+  Row,
+} from "react-bootstrap";
 
 const Cursos = () => {
   const [cursos, setCursos] = useState([]);
@@ -13,10 +22,10 @@ const Cursos = () => {
 
   const fetchCursos = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/cursos');
+      const response = await axios.get("http://localhost:3000/cursos");
       setCursos(response.data);
     } catch (error) {
-      console.error('Erro ao buscar cursos:', error);
+      console.error("Erro ao buscar cursos:", error);
     }
   };
 
@@ -26,29 +35,32 @@ const Cursos = () => {
   };
 
   const handleDelete = async (id) => {
-    if (window.confirm('Tem certeza que deseja excluir este curso?')) {
+    if (window.confirm("Tem certeza que deseja excluir este curso?")) {
       try {
         await axios.delete(`http://localhost:3000/cursos/${id}`);
-        fetchCursos(); // Recarrega a lista de cursos
+        fetchCursos();
       } catch (error) {
-        console.error('Erro ao excluir curso:', error);
+        console.error("Erro ao excluir curso:", error);
       }
     }
   };
 
   const handleSave = async () => {
     try {
-      await axios.put(`http://localhost:3000/cursos/${cursoEditando._id}`, cursoEditando);
+      await axios.put(
+        `http://localhost:3000/cursos/${cursoEditando._id}`,
+        cursoEditando
+      );
       setShowModal(false);
-      fetchCursos(); // Recarrega a lista de cursos
+      fetchCursos();
     } catch (error) {
-      console.error('Erro ao atualizar curso:', error);
+      console.error("Erro ao atualizar curso:", error);
     }
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setCursoEditando(prevCurso => ({
+    setCursoEditando((prevCurso) => ({
       ...prevCurso,
       [name]: value,
     }));
@@ -57,15 +69,15 @@ const Cursos = () => {
   const renderCarouselItems = () => {
     const items = [];
 
-    // Divide os cursos em grupos de três
     for (let i = 0; i < cursos.length; i += 3) {
       items.push(
         <Carousel.Item key={i}>
           <Row className="text-center">
-            {cursos.slice(i, i + 3).map(curso => {
+            {cursos.slice(i, i + 3).map((curso) => {
               const precoOriginal = parseFloat(curso.preço);
               const desconto = parseFloat(curso.promoção);
-              const precoComDesconto = precoOriginal - (precoOriginal * (desconto / 100));
+              const precoComDesconto =
+                precoOriginal - precoOriginal * (desconto / 100);
 
               return (
                 <Col key={curso._id} md={4}>
@@ -74,20 +86,26 @@ const Cursos = () => {
                       variant="top"
                       src={curso.imagem}
                       alt={curso.nome}
-                      style={{ height: '200px', objectFit: 'cover' }}
+                      style={{ height: "200px", objectFit: "cover" }}
                     />
                     <Card.Body>
                       <Card.Title>{curso.nome}</Card.Title>
                       <Card.Text>
-                        <span style={{ textDecoration: 'line-through', color: 'red' }}>
+                        <span
+                          style={{
+                            textDecoration: "line-through",
+                            color: "red",
+                          }}
+                        >
                           R$ {precoOriginal.toFixed(2)}
                         </span>
                         <br />
                         <strong>Desconto: {desconto}%</strong>
                         <br />
-                        <strong>Preço com Desconto: R$ {precoComDesconto.toFixed(2)}</strong>
+                        <strong>
+                          Preço com Desconto: R$ {precoComDesconto.toFixed(2)}
+                        </strong>
                       </Card.Text>
-
                     </Card.Body>
                   </Card>
                 </Col>
@@ -119,7 +137,7 @@ const Cursos = () => {
               <Form.Control
                 type="text"
                 name="nome"
-                value={cursoEditando?.nome || ''}
+                value={cursoEditando?.nome || ""}
                 onChange={handleChange}
               />
             </Form.Group>
@@ -128,7 +146,7 @@ const Cursos = () => {
               <Form.Control
                 as="textarea"
                 name="descrição"
-                value={cursoEditando?.descrição || ''}
+                value={cursoEditando?.descrição || ""}
                 onChange={handleChange}
               />
             </Form.Group>
@@ -137,7 +155,7 @@ const Cursos = () => {
               <Form.Control
                 type="number"
                 name="preço"
-                value={cursoEditando?.preço || ''}
+                value={cursoEditando?.preço || ""}
                 onChange={handleChange}
               />
             </Form.Group>
@@ -146,7 +164,7 @@ const Cursos = () => {
               <Form.Control
                 type="number"
                 name="promoção"
-                value={cursoEditando?.promoção || ''}
+                value={cursoEditando?.promoção || ""}
                 onChange={handleChange}
               />
             </Form.Group>
@@ -155,7 +173,7 @@ const Cursos = () => {
               <Form.Control
                 type="text"
                 name="imagem"
-                value={cursoEditando?.imagem || ''}
+                value={cursoEditando?.imagem || ""}
                 onChange={handleChange}
               />
             </Form.Group>

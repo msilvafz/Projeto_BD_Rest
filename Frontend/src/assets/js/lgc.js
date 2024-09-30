@@ -14,5 +14,3 @@ loginAlunoBtn.onclick = () => {
   loginFormAluno.style.marginLeft = "0%";
   loginTitleAluno.style.marginLeft = "0%";
 };
-
-

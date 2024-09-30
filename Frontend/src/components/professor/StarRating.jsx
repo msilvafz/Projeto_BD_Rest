@@ -1,5 +1,5 @@
-import React from 'react';
-import { FaStar } from 'react-icons/fa';
+import React from "react";
+import { FaStar } from "react-icons/fa";
 
 const StarRating = ({ rating, onRatingChange }) => {
   const handleClick = (value) => {
@@ -16,7 +16,7 @@ const StarRating = ({ rating, onRatingChange }) => {
           color={value <= rating ? "#ffc107" : "#e4e5e9"}
           size={30}
           onClick={() => handleClick(value)}
-          style={{ cursor: 'pointer' }}
+          style={{ cursor: "pointer" }}
         />
       ))}
     </div>

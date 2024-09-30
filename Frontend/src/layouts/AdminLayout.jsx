@@ -14,6 +14,7 @@ function CursosLayout() {
   const [alertMessage, setAlertMessage] = useState("");
 
   // Barra lateral mobile
+
   const handleToggle = () => {
     wrapperRef.current.classList.toggle("toggled");
   };
@@ -32,7 +33,7 @@ function CursosLayout() {
     }
   };
 
-  // Função Mudar de foto
+  // Função Mudar de foto perfil
 
   const handleEditProfile = () => {
     fileInputRef.current.click();
@@ -77,7 +78,7 @@ function CursosLayout() {
               <i className="fas fa-support me-2" />
               Usuários
             </NavLink>
-           
+
             <NavLink
               to="/"
               className="list-group-item list-group-item-action bg-transparent text-danger fw-bold"
@@ -89,8 +90,7 @@ function CursosLayout() {
 
           <NavLink to="/">
             <img
-              src={logo
-              }
+              src={logo}
               alt="Cursos Digitais"
               style={{
                 width: "100px",

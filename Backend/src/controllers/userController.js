@@ -19,13 +19,13 @@ exports.createManyUser = async (req, res) => {
 };
 
 exports.getAllUser = async (req, res) => {
-    try {
-      const users = await User.find();
-      res.status(200).json(users);
-    } catch (error) {
-      res.status(400).json({ message: error.message });
-    }
-  };
+  try {
+    const users = await User.find();
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
 
 exports.updateUser = async (req, res) => {
   try {
@@ -39,17 +39,17 @@ exports.updateUser = async (req, res) => {
 };
 
 exports.getUsersByType = async (req, res) => {
-    try {
-      const { tipo } = req.params;
-      console.log('Tipo solicitado:', tipo); 
-      const users = await User.find({ tipo });
-      console.log('Usuários encontrados:', users); 
-      res.status(200).json(users);
-    } catch (error) {
-      console.error('Erro ao buscar usuários por tipo:', error);
-      res.status(400).json({ message: error.message });
-    }
-  };
+  try {
+    const { tipo } = req.params;
+    console.log("Tipo solicitado:", tipo);
+    const users = await User.find({ tipo });
+    console.log("Usuários encontrados:", users);
+    res.status(200).json(users);
+  } catch (error) {
+    console.error("Erro ao buscar usuários por tipo:", error);
+    res.status(400).json({ message: error.message });
+  }
+};
 
 exports.getUserById = async (req, res) => {
   try {

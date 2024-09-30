@@ -8,9 +8,7 @@ const Cursos = () => {
         <div className="feature col">
           <div className="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3"></div>
           <h3 className="fs-2 text-body-emphasis">Curso 1</h3>
-          <p>
-            JS
-          </p>
+          <p>JS</p>
           <a href="#" className="icon-link">
             Link do Curso
           </a>
@@ -18,9 +16,7 @@ const Cursos = () => {
         <div className="feature col">
           <div className="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3"></div>
           <h3 className="fs-2 text-body-emphasis">Curso 2</h3>
-          <p>
-            Phyton
-          </p>
+          <p>Phyton</p>
           <a href="#" className="icon-link">
             Link do Curso
           </a>
@@ -28,9 +24,7 @@ const Cursos = () => {
         <div className="feature col">
           <div className="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3"></div>
           <h3 className="fs-2 text-body-emphasis">Curso 3</h3>
-          <p>
-            Html + CSS
-          </p>
+          <p>Html + CSS</p>
           <a href="#" className="icon-link">
             Link do Curso
           </a>
